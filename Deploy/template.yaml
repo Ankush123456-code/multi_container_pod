@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app-multi-container
+  template:
+    metadata:
+      labels:
+        app: my-app-multi-container
+    spec:
+      containers:
+      - name: service
+        image: 258794/main:01
+        ports:
+        - containerPort: 8000 # Service container listens on port 8000
+      - name: endpoint
+        image: 258794/worker:01
+        ports:
+        - containerPort: 7072 # Endpoint container listens on port 7070
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: my-app-multi-container
+  ports:
+  - protocol: TCP
+    port: 8000 # Expose the service on port 8000
+    targetPort: 8000 # Route traffic to the service container
+  type: LoadBalancer # Expose the service outside the cluster
