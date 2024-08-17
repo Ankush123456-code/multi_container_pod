@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: service
-        image: 258794/main:01
+        image: give-your-image-name
         ports:
         - containerPort: 8000 # Service container listens on port 8000
       - name: endpoint
-        image: 258794/worker:01
+        image: give-your-helper-image-name
         ports:
         - containerPort: 7072 # Endpoint container listens on port 7070
 ---
