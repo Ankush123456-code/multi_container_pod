@@ -45,7 +45,7 @@ def convert_doc_to_pdf(input_path):
 
 
 # if __name__ == "__main__":
-#     input_path = "C:/Users/Ankush babu/Desktop/Docker/multi_container/Bank_Account_Form.docx"
-#     out_puth_path = "C:/Users/Ankush babu/Desktop/Docker/multi_container/bank.pdf"
+#     input_path = ""
+#     out_puth_path = ""
 #
 #     convert_doc_to_pdf(input_path)
